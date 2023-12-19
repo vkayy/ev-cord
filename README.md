@@ -12,7 +12,7 @@ to be updated when deployed!
 - next.js
 - tailwind css
 - shadcn-ui
-- prisma (mysql)
+- prisma (postgresql)
 - supabase
 - socket.io
 
