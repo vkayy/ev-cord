@@ -11,7 +11,7 @@ to be updated when deployed!
 - react (typescript)
 - next.js
 - tailwind css
-- shadcn-ui
+- shadcn
 - prisma (postgresql)
 - supabase
 - socket.io
