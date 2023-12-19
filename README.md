@@ -10,8 +10,8 @@ to be updated when deployed!
 
 - react (typescript)
 - next.js
+- shadcn/ui
 - tailwind css
-- shadcn
 - prisma (postgresql)
 - supabase
 - socket.io
