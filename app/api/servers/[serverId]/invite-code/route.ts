@@ -30,5 +30,3 @@ export async function PATCH(
     return new NextResponse("Internal Server Error", { status: 500 })
   }
 }
-
-// http://localhost:3000/invite/a5c736d8-a4b4-496d-b3c8-ecbfbd373919
