@@ -14,3 +14,9 @@ export type NextApiResponseServerIo = NextApiResponse & {
     }
   }
 }
+
+export type SocketWithServer = Socket & {
+  server: NetServer & {
+    io: SocketIOServer
+  }
+}
