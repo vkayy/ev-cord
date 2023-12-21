@@ -15,12 +15,6 @@ export type NextApiResponseServerIo = NextApiResponse & {
   }
 }
 
-export type SocketWithServer = Socket & {
-  server: NetServer & {
-    io: SocketIOServer
-  }
-}
-
 export type MessageWithMemberWithProfile = Message & {
   member: Member & {
     profile: Profile
