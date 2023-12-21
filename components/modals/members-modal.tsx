@@ -136,14 +136,14 @@ export const MembersModal = () => {
                             <DropdownMenuSubContent>
                               <DropdownMenuItem onClick={() => onRoleChange(member.id, "GUEST")}>
                                 <Shield className="h-4 w-4 mr-2" />
-                                guest
+                                <p className="pr-2">guest</p>
                                 {member.role === "GUEST" && (
                                   <Check className="h-4 w-4 ml-auto" />
                                 )}
                               </DropdownMenuItem>
                               <DropdownMenuItem onClick={() => onRoleChange(member.id, "MODERATOR")}>
                                 <ShieldCheck className="h-4 w-4 mr-2" />
-                                moderator
+                                <p className="pr-2">moderator</p>
                                 {member.role === "MODERATOR" && (
                                   <Check className="h-4 w-4 ml-auto" />
                                 )}
@@ -161,7 +161,7 @@ export const MembersModal = () => {
                   </div>
 								)}
                 {loadingId === member.id && (
-                  <Loader2 className="animate-spin h-4 w-4 text-zinc-500" />
+                  <Loader2 className="animate-spin h-4 w-4 text-zinc-500 ml-auto" />
                 )}
 						</div>
 					))}
