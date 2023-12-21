@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 
 interface ChatItemProps {
 	id: string;
@@ -56,7 +57,7 @@ export const ChatItem = ({
 	socketQuery,
 }: ChatItemProps) => {
 	const [isEditing, setIsEditing] = useState(false);
-	const [isDeleting, setIsDeleting] = useState(false);
+	const { onOpen } = useModal();
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -81,14 +82,14 @@ export const ChatItem = ({
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
-      const url = qs.stringifyUrl({
-        url: `${socketUrl}/${id}`,
-        query: socketQuery,
-      })
-      await axios.patch(url, values)
+			const url = qs.stringifyUrl({
+				url: `${socketUrl}/${id}`,
+				query: socketQuery,
+			});
+			await axios.patch(url, values);
 
-      form.reset();
-      setIsEditing(false);
+			form.reset();
+			setIsEditing(false);
 		} catch (error) {
 			console.log(error);
 		}
@@ -221,7 +222,15 @@ export const ChatItem = ({
 						</ActionTooltip>
 					)}
 					<ActionTooltip label="delete" side="top" align="center">
-						<Trash className="cursor-pointer ml-auto h-4 w-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition" />
+						<Trash
+							onClick={() =>
+								onOpen("deleteMessage", {
+									apiUrl: `${socketUrl}/${id}`,
+									query: socketQuery,
+								})
+							}
+							className="cursor-pointer ml-auto h-4 w-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
+						/>
 					</ActionTooltip>
 				</div>
 			)}
