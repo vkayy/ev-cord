@@ -12,7 +12,7 @@ import { ServerSection } from "@/components/server/server-section";
 import { ServerChannel } from "@/components/server/server-channel";
 import { ServerMember } from "@/components/server/server-member";
 
-interface ServerSiderbarProps {
+interface ServerSidebarProps {
 	serverId: string;
 }
 
@@ -30,7 +30,7 @@ const roleIconMap = {
 	[MemberRole.ADMIN]: <Crown className="h-4 w-4 mr-2 text-rose-500" />,
 };
 
-export const ServerSiderbar = async ({ serverId }: ServerSiderbarProps) => {
+export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 	const profile = await currentProfile();
 
 	if (!profile) return redirect("/");
